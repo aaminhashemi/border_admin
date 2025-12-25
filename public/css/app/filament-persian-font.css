@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'irs';
+    src: url('../font/iransans/woff2/IRANSansWeb_Medium.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'irs';
+    src: url('../font/iransans/woff2/IRANSansWeb_Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* اعمال فونت به کل Filament */
+.fi-body {
+    font-family: 'irs', sans-serif !important;
+}
