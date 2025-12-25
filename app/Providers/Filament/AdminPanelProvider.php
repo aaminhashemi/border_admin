@@ -2,6 +2,8 @@
 
 namespace App\Providers\Filament;
 
+use App\Http\Middleware\SetLocaleFromRequest;
+use Filament\Actions\Action;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -17,6 +19,7 @@ use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
+use Illuminate\Support\Facades\App;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class AdminPanelProvider extends PanelProvider
@@ -24,6 +27,25 @@ class AdminPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
+            ->bootUsing(function () {
+                if (session()->has('locale')) {
+                    App::setLocale(session('locale'));
+                }
+            })
+            ->userMenuItems([
+                Action::make('lang-fa')
+                    ->label('فارسی')
+                    ->url(fn () => request()->fullUrlWithQuery(['lang' => 'fa'])),
+
+                Action::make('lang-ar')
+                    ->label('العربية')
+                    ->url(fn () => request()->fullUrlWithQuery(['lang' => 'ar'])),
+
+                Action::make('lang-en')
+                    ->label('English')
+                    ->url(fn () => request()->fullUrlWithQuery(['lang' => 'en'])),
+            ])
+
             ->default()
             ->id('admin')
             ->path('admin')
@@ -49,6 +71,7 @@ class AdminPanelProvider extends PanelProvider
                 ShareErrorsFromSession::class,
                 VerifyCsrfToken::class,
                 SubstituteBindings::class,
+                SetLocaleFromRequest::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
