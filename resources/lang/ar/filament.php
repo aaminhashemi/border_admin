@@ -3,12 +3,13 @@
 return [
     'navigation' => [
         'dashboard' => 'لوحة التحكم',
-        'users'     => 'المستخدمون',
-        'settings'  => 'الإعدادات',
+        'users' => 'المستخدمون',
+        'settings' => 'الإعدادات',
     ],
 
     'actions' => [
         'create' => 'إنشاء',
-        'edit'   => 'تعديل',
+        'edit' => 'تعديل',
         'delete' => 'حذف',
-    ],];
+    ],
+    ];

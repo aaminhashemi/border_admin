@@ -3,6 +3,8 @@
 return [
     'navigation' => [
         'dashboard' => 'dashboard',
+        'users' => 'users',
+        'settings' => 'settings',
     ],
 
     'actions' => [

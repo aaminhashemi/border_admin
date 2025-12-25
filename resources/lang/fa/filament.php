@@ -3,6 +3,8 @@
 return [
     'navigation' => [
         'dashboard' => 'داشبورد',
+        'users' => 'کاربران',
+        'settings' => 'تنظیمات',
     ],
 
     'actions' => [
