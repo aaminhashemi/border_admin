@@ -21,11 +21,11 @@ class UserResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = 'name';
+    protected static ?string $recordTitleAttribute = 'full_name';
 
     public static function getGloballySearchableAttributes(): array
     {
-        return ['name', 'email']; // یا هر ستون واقعی دیگری که دارید
+        return ['full_name', 'email']; // یا هر ستون واقعی دیگری که دارید
     }
     public static function getModelLabel(): string
     {

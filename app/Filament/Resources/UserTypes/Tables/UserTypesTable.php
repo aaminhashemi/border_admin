@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Users\Tables;
+namespace App\Filament\Resources\UserTypes\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
@@ -8,25 +8,16 @@ use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class UsersTable
+class UserTypesTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label(__('users.fields.name')),
-                TextColumn::make('last_name')
-                    ->label(__('users.fields.last_name')),
-
-                TextColumn::make('email')
-                    ->label(__('users.fields.email')),
-
-                TextColumn::make('created_at')
-                    ->label(__('users.fields.created_at')),
-
-                TextColumn::make('updated_at')
-                    ->label(__('users.fields.updated_at')),
+                    ->label(__('user_type.fields.name')),
+                TextColumn::make('slug')
+                    ->label(__('user_type.fields.slug')),
             ])
             ->filters([
                 //
