@@ -2,11 +2,13 @@
 
 return [
     'navigation' => [
-        'dashboard' => 'الداشبورد',
+        'dashboard' => 'لوحة التحكم',
+        'users'     => 'المستخدمون',
+        'settings'  => 'الإعدادات',
     ],
 
     'actions' => [
-        'create' => 'ایجاد',
-        'edit' => 'ویرایش',
+        'create' => 'إنشاء',
+        'edit'   => 'تعديل',
         'delete' => 'حذف',
     ],];
